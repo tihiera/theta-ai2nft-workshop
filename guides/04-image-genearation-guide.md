@@ -45,10 +45,10 @@ User Message → Intent Detection → Prompt Extraction → Image Generation →
 
 ```javascript
 // Main orchestrator in server.ts
-const imageData = await handleGernarateImageCheck(body.messages);
+const imageData = await handleGenerateImageCheck(body.messages);
 
 // Intent detection in imageHandler.ts
-export async function handleGernarateImageCheck(messages) {
+export async function handleGenerateImageCheck(messages) {
   // 1. Ask LLM if user wants image
   // 2. Parse LLM response
   // 3. Generate image if requested
@@ -190,13 +190,13 @@ The system uses these optimized settings:
 **Open [`backend/src/server.ts`](../backend/src/server.ts) and enhance the `/chat` endpoint:**
 
 **Your mission:**
-1. **Add image generation check** - Call `handleGernarateImageCheck()` with user messages
+1. **Add image generation check** - Call `handleGenerateImageCheck()` with user messages
 2. **Handle image results** - If image is generated, create NFT object and call `handleCompletionWithNFT()`
 3. **Include NFT data** - Add NFT data to the response when available
 4. **Keep existing logic** - Maintain normal chat flow for non-image requests
 
 **Key integration points:**
-- Import: `handleGernarateImageCheck` from `./handlers/imageHandler`
+- Import: `handleGenerateImageCheck` from `./handlers/imageHandler`
 - Import: `handleCompletionWithNFT` from `./handlers/nftHandler` 
 - Check: `if (imageData.image)` to determine if image was generated
 - Response: Include `nft: { image, prompt }` in successful responses
@@ -217,7 +217,7 @@ app.post('/chat', async (req, res) => {
     }
 
     // Check if user wants to generate an image
-    const imageData = await handleGernarateImageCheck(body.messages);
+    const imageData = await handleGenerateImageCheck(body.messages);
     let newNFT: NFTInterface | undefined;
     let completionResult;
 

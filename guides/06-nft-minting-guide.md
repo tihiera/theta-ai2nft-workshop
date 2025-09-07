@@ -177,7 +177,7 @@ In your `server.ts`, this integrates into the existing flow of the `/chat` endpo
 
 ```javascript
     // Check if user wants to generate an image
-    const imageData = await handleGernarateImageCheck(body.messages);
+    const imageData = await handleGenerateImageCheck(body.messages);
     let newNFT: NFTInterface | undefined;
     let oldNFT: NFTInterface = body.nft || {image: '', prompt: '', wallet: ''};
     let completionResult;

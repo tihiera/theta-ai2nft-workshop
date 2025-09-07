@@ -113,7 +113,7 @@ function sleep(ms: number): Promise<void> {
  * @param messages - Array of conversation messages
  * @returns Promise resolving to image generation result
  */
-export async function handleGernarateImageCheck(messages: Message[]): Promise<ImageGenerationResult> {
+export async function handleGenerateImageCheck(messages: Message[]): Promise<ImageGenerationResult> {
   try {
     // Use LLM to determine if user wants image generation
     const response = await handleCompletionCustomPrompt(messages, PROMPTS.IMAGE_GENERATION_CHECK);

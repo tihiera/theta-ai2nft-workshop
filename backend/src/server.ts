@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { generateImage, handleGernarateImageCheck } from './handlers/imageHandler';
+import { generateImage, handleGenerateImageCheck } from './handlers/imageHandler';
 import { handleCompletion, handleCompletionCustomPrompt } from './handlers/llmHandler';
 import { mintNFT, isMintable, handleCompletionWithNFT, filterWalletAddress } from './handlers/nftHandler';
 import { CompletionInput, NFTInterface, APISuccess, APIError } from './types';
